@@ -4,7 +4,8 @@ public class Moto {
 	String matricula;
 	int cilindrada;
 
-	public Moto() {
+	public Moto()
+	{
 		matricula = "";
 		cilindrada = 0;
 	}
