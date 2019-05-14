@@ -52,4 +52,25 @@ public class Coche
 		}
 		return resultado;
 	}
+	
+	
+	public String metodoA(String producer, String model)
+	{
+		String resultado = "Es un " + producer + " " + model + " y gasta 1,337 euros por litro.";
+		return resultado;
+	}
+	
+	
+	public String metodoB(String producer, String model)
+	{
+		String resultado = "Es un " + producer + " " + model + " y gasta 1,052 euros por litro.";
+		return resultado;
+	}
+	
+	
+	public String metodoC(String producer, String model)
+	{
+		String resultado = "Es un " + producer + " " + model + " y no necesita combustible.";
+		return resultado;
+	}
 }
