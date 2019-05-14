@@ -2,8 +2,10 @@ package practica6;
 
 public class Coche
 {
+	private static final String COCHE_MATRICULA = "El coche con matricula ";
+	
 	String matricula;
-	String atrib;
+	String combustible;
 	String modelo;
 	String fabricante;
 	
@@ -11,7 +13,7 @@ public class Coche
 	public Coche()
 	{
 		matricula = "";
-		atrib = "";
+		combustible = "";
 		modelo = "";
 		fabricante = "";
 	}
@@ -20,55 +22,59 @@ public class Coche
 	public Coche(String m, String c, String mo, String f)
 	{
 		matricula = m;
-		atrib = c;
+		combustible = c;
 		modelo = mo;
 		fabricante = f;
 	}
 	
 	
-	public String metodo1()
+	public String combustibleUsado()
 	{
 		String resultado = "";
 		
-		if (atrib == "Gasolina")
+		switch (combustible)
 		{
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoA(modelo, fabricante);
-		}
-		else if (atrib == "Diesel")
-		{
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoB(modelo, fabricante);
-		}
-		else if (atrib == "Híbrido")
-		{
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += metodoC(modelo, fabricante);
-		}
-		else
-		{
-			resultado += "El coche con matricula " + matricula + " ";
-			resultado += "no dispone de información";
+			case "Gasolina":
+				resultado += matriculaFraseCoche() + cocheGasolina(modelo, fabricante);
+				break;
+			
+			case "Diesel":
+				resultado += matriculaFraseCoche() + cocheDiesel(modelo, fabricante);
+				break;
+				
+			case "Híbrido":
+				resultado += matriculaFraseCoche() + cocheHibrido(modelo, fabricante);
+				break;
+			
+			default:
+				resultado += matriculaFraseCoche() + "no dispone de información";
+				break;
 		}
 		return resultado;
 	}
+
+
+	public String matriculaFraseCoche()
+	{
+		return COCHE_MATRICULA + matricula + " ";
+	}
 	
 	
-	public String metodoA(String producer, String model)
+	public String cocheGasolina(String producer, String model)
 	{
 		String resultado = "Es un " + producer + " " + model + " y gasta 1,337 euros por litro.";
 		return resultado;
 	}
 	
 	
-	public String metodoB(String producer, String model)
+	public String cocheDiesel(String producer, String model)
 	{
 		String resultado = "Es un " + producer + " " + model + " y gasta 1,052 euros por litro.";
 		return resultado;
 	}
 	
 	
-	public String metodoC(String producer, String model)
+	public String cocheHibrido(String producer, String model)
 	{
 		String resultado = "Es un " + producer + " " + model + " y no necesita combustible.";
 		return resultado;
