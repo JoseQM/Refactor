@@ -34,6 +34,7 @@ public class Coche
 		
 		switch (combustible)
 		{
+		
 			case "Gasolina":
 				resultado += matriculaFraseCoche() + cocheGasolina(modelo, fabricante);
 				break;
